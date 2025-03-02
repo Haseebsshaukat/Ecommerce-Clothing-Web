@@ -3,11 +3,13 @@ import { client, urlFor } from '../../lib/client'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import {CgShoppingCart} from 'react-icons/cg'
 import { useStateContext } from '../../context/StateContext';
+import { useRouter } from 'next/router';
 
 const ProductDetails = ({products, product}) => {
     const { image, name, details, price, tags, care } = product;
     const [index, setIndex] = useState(0);
     const {decQty, incQty, qty, onAdd} = useStateContext();
+    const router = useRouter();
 
     const careList = [];
 
@@ -55,6 +57,8 @@ const ProductDetails = ({products, product}) => {
                             <span className='plus' onClick={incQty}><AiOutlinePlus /></span>
                         </div>
                     </div>
+                    <button className='btn try-on-btn' type='button' onClick={() => router.push('/tryon')}>Try-on</button>
+
                     <div className='add-to-cart'>
                         <button className='btn' type='button' onClick={() => onAdd(product, qty)}><CgShoppingCart size={20} />Add to Cart</button>
                         <p className='price'>${price}.00</p>  

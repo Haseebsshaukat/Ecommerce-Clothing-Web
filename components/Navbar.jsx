@@ -8,22 +8,23 @@ import logo from "../src/assets/Logo.png";
 import logo3 from "../src/assets/logo3.png";
 import { useStateContext } from "../context/StateContext";
 
-const Navbar = ({ Searchproducts }) => {
+const Navbar = () => {
   const { showCart, setShowCart, totalQty } = useStateContext();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [user, setUser] = useState(null);
 
   // Function to get user from localStorage
   const getUser = () => {
+    const token = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
+    return token && storedUser ? JSON.parse(storedUser) : null;
   };
 
-  // Set user on component mount
+  // Fetch user from localStorage when component mounts
   useEffect(() => {
     setUser(getUser());
 
-    // Listen for changes in localStorage
+    // Listen for localStorage changes
     const handleStorageChange = () => {
       setUser(getUser()); // Update state when localStorage changes
     };
@@ -37,7 +38,7 @@ const Navbar = ({ Searchproducts }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
-    window.dispatchEvent(new Event("storage")); // Manually trigger storage event
+    window.dispatchEvent(new Event("storage")); // Force navbar update
   };
 
   return (
