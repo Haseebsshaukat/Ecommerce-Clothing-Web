@@ -3,6 +3,8 @@ import Image from 'next/image'
 import {CiSearch} from 'react-icons/ci'
 import {CgShoppingCart} from 'react-icons/cg'
 import logo from '../src/assets/Logo.png'
+import logo3 from '../src/assets/logo3.png'
+
 import Link from 'next/link'
 import {RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { useStateContext } from '../context/StateContext';
@@ -14,7 +16,8 @@ const Navbar = ({Searchproducts}) => {
   return (
     <nav>
       <Link href='/'>
-        <Image src={logo} width={140} height={25} alt='logo' />
+
+        <Image src={logo3} width={150} height={70} alt='logo' />
       </Link>
       <ul className='nav-links'>
         <Link href='/female'><li>Female</li></Link>

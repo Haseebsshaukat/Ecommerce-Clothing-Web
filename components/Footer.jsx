@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import logo from '../src/assets/Logo.png'
+import logo3 from '../src/assets/Logo3.png'
+
 import {GrFacebookOption, GrTwitter, GrLinkedinOption} from 'react-icons/gr'
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
     <footer>
       <div className='footer'>
         <div className='logo'>
-          <Image src={logo} width={180} height={30} alt='logo' />
+          <Image src={logo3} width={150} height={70} alt='logo' />
           <p>Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.</p>
           <div className='icon-container'>
             <div><GrTwitter size={20} /></div>
@@ -47,9 +48,9 @@ const Footer = () => {
       </div>
 
       <div className='copyright'>
-        <p>Copyright © 2022 Dine Market</p>
+        <p>Copyright © 2022 Wear Flare</p>
         <p>Design by. <span>Weird Design Studio</span></p>
-        <p>Code by. <span>shabrina12 on github</span></p>
+        <p>Code by. <span> Fyp_Members</span></p>
       </div>
     </footer>
   )
